@@ -136,3 +136,8 @@ ALTER TABLE groupLesson ADD CONSTRAINT FK_groupLesson_0 FOREIGN KEY (lesson_ID_0
 ALTER TABLE individualLesson ADD CONSTRAINT FK_individualLesson_0 FOREIGN KEY (lesson_ID_0) REFERENCES lesson (lesson_ID);
 
 
+CREATE VIEW bookings AS
+SELECT lesson_id, COUNT(*) AS booked
+ FROM student_lesson
+ GROUP BY lesson_id
+ ORDER BY lesson_id;
