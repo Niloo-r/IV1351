@@ -1,7 +1,7 @@
 SELECT ensemble.genre_id, date, time, skill_level, bookings.booked,
 
 CASE
-	WHEN bookings.booked = ensemble.maxnumber THEN 'FULLY BOOKED'
+	WHEN bookings.booked >= ensemble.maxnumber THEN 'FULLY BOOKED'
 	WHEN bookings.booked = ensemble.maxnumber-2 THEN 'TWO SPOTS LEFT'
 	WHEN bookings.booked = ensemble.maxnumber-1 THEN 'ONE SPOT LEFT'
 	ELSE 'SPOTS AVAILABLE'
